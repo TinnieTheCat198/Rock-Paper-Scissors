@@ -5,15 +5,14 @@ function getComputerChoice(){
         case 2: return 'paper';
         case 3: return 'scissors';
     }
-    return null;
+    // return null;
 }
 
 function playRound(playerSelection, computerSelection){
-    let processedPlayerChoice = String(playerSelection).toLowerCase();
-    if (processedPlayerChoice === computerSelection)
+    if (playerSelection === computerSelection)
         return "Tie!";
     let win;
-    switch(processedPlayerChoice){
+    switch(playerSelection){
         case 'rock':
             win = (computerSelection === 'scissors');
             break;
@@ -24,12 +23,12 @@ function playRound(playerSelection, computerSelection){
             win = (computerSelection === 'paper');
             break;
         default:
-            return `Not exist ${processedPlayerChoice}`;
+            return `Not exist ${playerSelection}`;
     }
 
     if (win)
-        return `You win! (${processedPlayerChoice} beats ${computerSelection})`
-        return `You lose! (${computerSelection} beats ${processedPlayerChoice})`
+        return `You win! (${playerSelection} beats ${computerSelection})`
+        return `You lose! (${computerSelection} beats ${playerSelection})`
 }
 
 function roundResult(round, playerScore, computerScore){
@@ -47,21 +46,26 @@ function lastResult(playerScore, computerScore){
 function playGame(){
     let playerScore = 0
         , computerScore = 0;
-    let playerChoice;
+    
     let round = 0;
-    while(round != 6){
+    while(round != 5){
         ++round;    
-        playerChoice = prompt('Enter your choice?\nrock, paper, scissors');
-        let resultRound = playRound(playerChoice, getComputerChoice);
+        let playerChoice = prompt('Enter your choice?\nrock, paper, scissors');
+        let resultRound = playRound(playerChoice.toLowerCase(), getComputerChoice());
         if (resultRound.includes("Tie"))
         {
             ++playerScore;
             ++computerScore;
+            console.log(resultRound);
         }
-        else if (resultRound.includes("win"))
+        else if (resultRound.includes("win")){
             ++playerScore;
-        else if (resultRound.includes("lose"))
+            console.log(resultRound);
+        }
+        else if (resultRound.includes("lose")){
             ++computerScore;
+            console.log(resultRound);
+        }
         else{
             alert(resultRound);
             --round;
