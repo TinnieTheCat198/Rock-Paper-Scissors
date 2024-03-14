@@ -7,3 +7,27 @@ function getComputerChoice(){
     }
     return null;
 }
+
+function playRound(playerSelection, computerSelection){
+    let processedPlayerChoice = playerSelection.toLowerCase();
+    if (processedPlayerChoice === computerSelection)
+        return "Tie!";
+    let win;
+    switch(processedPlayerChoice){
+        case 'rock':
+            win = (computerSelection === 'scissors');
+            break;
+        case 'paper':
+            win = (computerSelection === 'rock');
+            break;
+        case 'scissors':
+            win = (computerSelection === 'paper');
+            break;
+        default:
+            return `Not exist ${processedPlayerChoice}`;
+    }
+
+    if (win)
+        return `You win! (${processedPlayerChoice} beats ${computerSelection})`
+        return `You lose! (${computerSelection} beats ${processedPlayerChoice})`
+}
