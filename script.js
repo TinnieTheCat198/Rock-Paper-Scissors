@@ -25,8 +25,6 @@ function playRound(playerSelection, computerSelection){
         case 'scissors':
             win = (computerSelection === 'paper');
             break;
-        default:
-            return `Not exist ${processedPlayerChoice}`;
     }
 
     if (win)
@@ -35,7 +33,9 @@ function playRound(playerSelection, computerSelection){
 }
 
 function roundResult(round, playerScore, computerScore){
-    console.log(`Round ${round}: Player score: ${playerScore} - Computer score: ${computerScore}`);
+    para.textContent = `Round ${round}: Player score: ${playerScore} - Computer score: ${computerScore}\n`;
+    result.appendChild(para);
+    console.log(`Round ${round}: Player score: ${playerScore} - Computer score: ${computerScore}\n`);
 }
 
 function lastResult(playerScore, computerScore){
@@ -54,6 +54,12 @@ function lastResult(playerScore, computerScore){
     if (computerScore === 5 || playerScore === 5){
         alert("Load the page if you want to play again");
     }
+
+    const para = document.createElement('p');
+    const result = document.querySelector('.result-section');
+    para.style.fontSize="16px";
+    result.appendChild(para);
+    
 
     let rockChoice = document.querySelector("#rock");
     let paperChoice = document.querySelector("#paper");
@@ -125,7 +131,7 @@ function lastResult(playerScore, computerScore){
         
     });
 
-    
+
 
 
     

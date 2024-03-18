@@ -59,9 +59,10 @@ button {
     display: flex;
     flex-direction: column;
     min-height: 150px;
-    min-width: 800px;
+    width: 800px;
     padding: 8px 32px;
     border: 1px solid black;
+    margin-bottom: 32px;
     flex: auto;
 }
 
@@ -72,4 +73,10 @@ button {
     font-size: 50px;
     align-items: center;
     flex: 1;
+}
+
+.result-title {
+    font-size: 24px;
+    color: green;
+    font-weight: 700;
 }
