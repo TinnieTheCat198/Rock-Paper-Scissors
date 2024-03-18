@@ -44,33 +44,80 @@ function lastResult(playerScore, computerScore){
     else console.log("RESULT: Tie!");
 }
 
-function playGame(){
     let playerScore = 0
         , computerScore = 0;
     let playerChoice;
     let round = 0;
-    while(round != 6){
-        ++round;    
-        playerChoice = prompt('Enter your choice?\nrock, paper, scissors');
-        let resultRound = playRound(playerChoice, getComputerChoice);
-        if (resultRound.includes("Tie"))
-        {
-            ++playerScore;
-            ++computerScore;
+
+    if (computerScore === 5 || playerScore === 5){
+        alert("Load the page if you want to play again");
+    }
+        
+    
+
+    let rockChoice = document.querySelector("#rock");
+    let paperChoice = document.querySelector("#paper");
+    let scissorsChoice = document.querySelector("#scissors");
+
+    rockChoice.addEventListener('click', () => {
+        if (computerScore === 5 || playerScore === 5){
+            alert("Load the page if you want to play again");
+            lastResult(playerScore, computerScore);
+            return;
         }
-        else if (resultRound.includes("win"))
+        ++round;
+        let computerChoice = getComputerChoice();
+        let resultRound = playRound('rock', computerChoice);
+
+        if (resultRound.includes("win"))
             ++playerScore;
         else if (resultRound.includes("lose"))
             ++computerScore;
-        else{
-            alert(resultRound);
-            --round;
-        }
+        console.log(resultRound);
 
         roundResult(round, playerScore, computerScore);
-    }
+    });
 
-    lastResult(playerScore, computerScore);
-}
+    paperChoice.addEventListener('click', () => {
+        if (computerScore === 5 || playerScore === 5){
+            alert("Load the page if you want to play again");
+            lastResult(playerScore, computerScore);
+            return;
+        }
+        ++round;
+        let computerChoice = getComputerChoice();
+        let resultRound = playRound('paper', computerChoice);
 
-playGame();
+        if (resultRound.includes("win"))
+            ++playerScore;
+        else if (resultRound.includes("lose"))
+            ++computerScore;
+        console.log(resultRound);
+
+        roundResult(round, playerScore, computerScore);
+
+        
+    });
+
+    scissorsChoice.addEventListener('click', () => {
+        if (computerScore === 5 || playerScore === 5){
+            alert("Load the page if you want to play again");
+            lastResult(playerScore, computerScore);
+            return;
+        }
+        ++round;
+        let computerChoice = getComputerChoice();
+        let resultRound = playRound('scissors', computerChoice);
+
+        if (resultRound.includes("win"))
+            ++playerScore;
+        else if (resultRound.includes("lose"))
+            ++computerScore;
+        console.log(resultRound);
+
+        roundResult(round, playerScore, computerScore);
+
+        
+    });
+
+    

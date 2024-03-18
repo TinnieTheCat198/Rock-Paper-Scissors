@@ -21,3 +21,46 @@ body {
     border-top: 1px solid gray;
     border-bottom: 1px solid gray;
 }
+
+.body {
+    display: flex;
+    flex-direction: column;
+}
+
+.body .play-area {
+    display: flex;
+    min-height: 300px;
+    min-width: 800px;
+    align-items: stretch;
+    flex: auto;
+    margin: 32px;
+}
+
+.body .play-area .player {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid black;
+    align-items: center;
+}
+
+button {
+    width: 80px;
+}
+
+.body .play-area .computer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body .result-section {
+    display: flex;
+    flex-direction: column;
+    min-height: 150px;
+    min-width: 800px;
+    padding: 8px 32px;
+    border: 1px solid black;
+    flex: auto;
+}
