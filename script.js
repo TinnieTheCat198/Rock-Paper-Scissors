@@ -9,6 +9,8 @@ function getComputerChoice(){
 }
 
 function playRound(playerSelection, computerSelection){
+    showPlayerChoice.textContent = playerSelection;
+    showComputerChoice.textContent = computerSelection;
     let processedPlayerChoice = String(playerSelection).toLowerCase();
     if (processedPlayerChoice === computerSelection)
         return "Tie!";
@@ -52,12 +54,15 @@ function lastResult(playerScore, computerScore){
     if (computerScore === 5 || playerScore === 5){
         alert("Load the page if you want to play again");
     }
-        
-    
 
     let rockChoice = document.querySelector("#rock");
     let paperChoice = document.querySelector("#paper");
     let scissorsChoice = document.querySelector("#scissors");
+    let showPlayerChoice = document.querySelector(".player-choice");
+    let showComputerChoice = document.querySelector(".computer-choice");
+
+    showPlayerChoice.textContent = "";
+    showComputerChoice.textContent = "";
 
     rockChoice.addEventListener('click', () => {
         if (computerScore === 5 || playerScore === 5){
@@ -119,5 +124,8 @@ function lastResult(playerScore, computerScore){
 
         
     });
+
+    
+
 
     
