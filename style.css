@@ -29,7 +29,7 @@ body {
 
 .body .play-area {
     display: flex;
-    min-height: 300px;
+    min-height: 250px;
     min-width: 800px;
     align-items: stretch;
     flex: auto;
@@ -76,7 +76,6 @@ button {
 }
 
 .result-title {
-    font-size: 24px;
-    color: green;
+    font-size: 32px;
     font-weight: 700;
 }

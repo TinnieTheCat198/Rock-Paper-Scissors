@@ -39,11 +39,26 @@ function roundResult(round, playerScore, computerScore){
 }
 
 function lastResult(playerScore, computerScore){
-    if (playerScore > computerScore)
+    const resultPara = document.createElement('p');
+    resultPara.style.height = "24px";
+    resultPara.style.fontWeight = "700";
+    if (playerScore > computerScore){
+        resultPara.style.color = "green";
+        resultPara.textContent = "YOU WIN";
         console.log("RESULT: You win!")
-    else if (playerScore < computerScore)
+    }
+        
+    else if (playerScore < computerScore){
+        resultPara.style.color = "red";
+        resultPara.textContent = "YOU LOSE";
         console.log("RESULT: You lose!")
-    else console.log("RESULT: Tie!");
+    }
+    else{
+        resultPara.style.color = "orange";
+        resultPara.textContent = "TIE";
+        console.log("RESULT: Tie!");
+    } 
+    result.appendChild(resultPara);
 }
 
     let playerScore = 0
@@ -52,7 +67,14 @@ function lastResult(playerScore, computerScore){
     let round = 0;
 
     if (computerScore === 5 || playerScore === 5){
-        alert("Load the page if you want to play again");
+        lastResult(playerScore, computerScore);
+        rockChoice.disabled = true;
+        paperChoice.disabled = true;
+        scissorsChoice.disabled = true;
+        
+        let p2 = document.createElement('p');
+        p2.textContent = "---> Reload the page to play again  <---";
+        result.appendChild(p2);
     }
 
     const para = document.createElement('p');
@@ -72,8 +94,15 @@ function lastResult(playerScore, computerScore){
 
     rockChoice.addEventListener('click', () => {
         if (computerScore === 5 || playerScore === 5){
-            alert("Load the page if you want to play again");
+            // alert("Load the page if you want to play again");
             lastResult(playerScore, computerScore);
+            rockChoice.disabled = true;
+            paperChoice.disabled = true;
+            scissorsChoice.disabled = true;
+        
+            let p2 = document.createElement('p');
+            p2.textContent = "---> Reload the page to play again  <---";
+            result.appendChild(p2);
             return;
         }
         ++round;
@@ -91,8 +120,14 @@ function lastResult(playerScore, computerScore){
 
     paperChoice.addEventListener('click', () => {
         if (computerScore === 5 || playerScore === 5){
-            alert("Load the page if you want to play again");
             lastResult(playerScore, computerScore);
+            rockChoice.disabled = true;
+            paperChoice.disabled = true;
+            scissorsChoice.disabled = true;
+        
+            let p2 = document.createElement('p');
+            p2.textContent = "---> Reload the page to play again  <---";
+            result.appendChild(p2);
             return;
         }
         ++round;
@@ -112,8 +147,14 @@ function lastResult(playerScore, computerScore){
 
     scissorsChoice.addEventListener('click', () => {
         if (computerScore === 5 || playerScore === 5){
-            alert("Load the page if you want to play again");
             lastResult(playerScore, computerScore);
+            rockChoice.disabled = true;
+            paperChoice.disabled = true;
+            scissorsChoice.disabled = true;
+        
+            let p2 = document.createElement('p');
+            p2.textContent = "---> Reload the page to play again  <---";
+            result.appendChild(p2);
             return;
         }
         ++round;
